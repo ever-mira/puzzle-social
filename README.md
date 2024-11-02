@@ -20,7 +20,7 @@ https://t.me/puzzle_social_team
 
 ## Documentation
 To read the full documentation, go to this page, hosted on GitHub Pages:
-[Documentation](https://ra13um42.github.io/puzzle-social-docs/)
+[Documentation](https://ever-mira.github.io/puzzle-social-docs/)
 
 ## Technology
 
