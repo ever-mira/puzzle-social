@@ -24,7 +24,7 @@
   "menu": {
     "start": "Startpage",
     "people": "Profiles",
-    "places": "Places",
+    "places": "Places & Projects",
     "events": "Events",
     "exchange": "Exchange",
     "chat": "Chat"
@@ -108,7 +108,7 @@
       "coming_soon": "Coming soon."
     },
     "places": {
-      "title": "Places",
+      "title": "Places & Projects",
       "subtitle": "Communities, farms and gardens",
       "coming_soon": "Coming soon."
     },

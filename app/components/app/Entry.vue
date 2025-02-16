@@ -2,16 +2,16 @@
   <div class="-ml.5">
     <div class="ml-3 md:ml-7">
 
-      <div class="text-[2.55rem] lg:text-[3.2rem] gradient-glow-text mt-8 font-figtree" data-text="Puzzle Social z-10">
+      <div class="text-[2.55rem] lg:text-[3.4rem] gradient-glow-text mt-8 font-figtree" data-text="Puzzle Social z-10">
         <span class="whitespace-nowrap">Puzzle.
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </div>
       <div
-        class="text-[2.2rem] lg:text-[3rem] font-bold font-figtree text-gray-800 dark:text-gray-100 md:mt-.9 whitespace-nowrap">
-        Find your Tribe.</div>
+        class="text-[1.8rem] lg:text-[2.7rem] font-bold font-figtree text-gray-800 dark:text-gray-100 md:mt-.9 whitespace-nowrap">
+        Community Network.</div>
 
       <div class="mt-2 text-lg">
-        {{ $t('app.subtitle') }}
+        Regionale Vernetzung für Nachhaltige Projekte.
       </div>
 
       <div class="mt-8 lg:mt-9">
@@ -29,6 +29,12 @@
             {{ $t('app.your_profile') }}
           </Button>
         </div>
+
+        <h3 class="text-2xl mt-20">Nachhaltige Projekte fördern.</h3>
+
+        <span class="block text-lg mt-2 lg:mt-1">Ein Beziehungsnetzwerk, um nachhaltige Projekte
+          sichtbar zu machen, und Vernetzung zu fördern.</span><br>
+        <NuxtLink to="/places" class="text-blue-700 hover:text-blue-600  text-lg">Zu den Projekten →</NuxtLink>
 
       </div>
     </div>
