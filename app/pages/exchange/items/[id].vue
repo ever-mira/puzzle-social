@@ -38,9 +38,7 @@
           {{ item.text }}
         </div>
       </div>
-
     </div>
-
 
     <div class="mt-20 lg:mt-24">
       <Button @click="goBack" class="!px-8">Zurück</Button>

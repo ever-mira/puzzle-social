@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     } else {
       const { data, error } = await supabase
         .from("profiles")
-        .select("user_id, username, avatar_url, location_label")
+        .select("user_id, username, avatar_url, location_label, created_at")
 
       if (error) {
         throw new Error("Fehler beim Laden der User: " + error.message)

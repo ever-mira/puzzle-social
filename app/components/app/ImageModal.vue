@@ -1,6 +1,6 @@
 <template>
   <div id="imageModal"
-    class="fixed inset-0 h-full bg-black bg-opacity-99% flex items-center justify-center z-50 cursor-pointer"
+    class="fixed inset-0 h-full bg-black bg-opacity-99% flex items-center justify-center z-50 cursor-pointer select-none"
     v-if="visible" @click="hideModal">
     <div class="flex h-full">
       <NuxtImg :src="imgUrl" height="910" class="max-w-full lg:max-h-70% my-auto object-contain" />
