@@ -15,13 +15,17 @@
     </Heading>
 
     <div class="mt-9 lg:mt-11" v-if="place">
-      <NuxtImg :src="place.avatar_url || undefined" width="700"
-        class="rounded-lg max-w-65 md:max-w-83 mt-10 cursor-pointer" v-if="place.avatar_url"
+      <NuxtImg :src="place.avatar_url || undefined" width="900"
+        class="rounded-lg max-w-65 md:max-w-110 mt-10 cursor-pointer" v-if="place.avatar_url"
         @click="showModal(place.avatar_url)" />
       <PlaceholderPhoto v-else />
     </div>
 
-    <div class="mt-9">
+    <div class="pt-6" v-if="place && place.website">
+      <a :href="place.website" target="_blank" class="text-blue-600">{{ place.website }}</a>
+    </div>
+
+    <div class="mt-11">
       <Button @click="goBack" class="!px-8">Zurück</Button>
     </div>
 

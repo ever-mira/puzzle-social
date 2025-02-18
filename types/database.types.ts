@@ -69,6 +69,24 @@ export type Database = {
         }
         Relationships: []
       }
+      drugs: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
       events: {
         Row: {
           avatar_url: string | null
@@ -104,6 +122,62 @@ export type Database = {
           website?: string | null
         }
         Relationships: []
+      }
+      exchange_categories: {
+        Row: {
+          created_at: string
+          id: number
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Relationships: []
+      }
+      exchange_items: {
+        Row: {
+          avatar_url: string | null
+          category_id: number
+          created_at: string
+          id: number
+          text: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          category_id: number
+          created_at?: string
+          id?: number
+          text: string
+          title: string
+          user_id?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          category_id?: number
+          created_at?: string
+          id?: number
+          text?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "exchange_items_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "exchange_categories"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       messages: {
         Row: {
@@ -168,7 +242,10 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          coordinates: Json | null
+          created_at: string | null
           full_name: string | null
+          hide: boolean | null
           location: unknown | null
           location_label: string | null
           osm_properties: Json | null
@@ -179,7 +256,10 @@ export type Database = {
         }
         Insert: {
           avatar_url?: string | null
+          coordinates?: Json | null
+          created_at?: string | null
           full_name?: string | null
+          hide?: boolean | null
           location?: unknown | null
           location_label?: string | null
           osm_properties?: Json | null
@@ -190,7 +270,10 @@ export type Database = {
         }
         Update: {
           avatar_url?: string | null
+          coordinates?: Json | null
+          created_at?: string | null
           full_name?: string | null
+          hide?: boolean | null
           location?: unknown | null
           location_label?: string | null
           osm_properties?: Json | null
@@ -224,6 +307,96 @@ export type Database = {
           srtext?: string | null
         }
         Relationships: []
+      }
+      trip_report_comments: {
+        Row: {
+          comment_text: string
+          created_at: string | null
+          id: number
+          trip_report_id: number | null
+          user_id: string | null
+        }
+        Insert: {
+          comment_text: string
+          created_at?: string | null
+          id?: number
+          trip_report_id?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          comment_text?: string
+          created_at?: string | null
+          id?: number
+          trip_report_id?: number | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trip_report_comments_trip_report_id_fkey"
+            columns: ["trip_report_id"]
+            isOneToOne: false
+            referencedRelation: "trip_reports"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "trip_report_comments_user_id_fkey1"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      trip_reports: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          drug_id: number
+          id: number
+          set: string | null
+          setting: string | null
+          text: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          drug_id: number
+          id?: number
+          set?: string | null
+          setting?: string | null
+          text: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          drug_id?: number
+          id?: number
+          set?: string | null
+          setting?: string | null
+          text?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trip_reports_drug_id_fkey"
+            columns: ["drug_id"]
+            isOneToOne: false
+            referencedRelation: "drugs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "trip_reports_user_id_fkey1"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
       }
     }
     Views: {

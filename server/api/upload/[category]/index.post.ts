@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const category = getRouterParam(event, "category")
-  const validCategories = ["avatar", "event", "place"]
+  const validCategories = ["avatar", "event", "place", "exchange"]
 
   if (!category || !validCategories.includes(category)) {
     throw createError({ statusCode: 400, statusMessage: "invalid category" })
