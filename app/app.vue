@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative overflow-hidden max-h-screen 3xl:max-w-80vw mx-auto bg-white dark:bg-[#121212] lg:dark:bg-black z-0">
+    class="relative overflow-hidden max-h-screen 3xl:max-w-90vw 4xl:max-w-85vw mx-auto bg-white dark:bg-[#121212] lg:dark:bg-black z-0">
     <NuxtLoadingIndicator />
 
     <aside>
@@ -32,6 +32,13 @@ import FloatingOrbs from './components/app/FloatingOrbs.vue'
 
 useHead({
   title: 'Puzzle Social',
+})
+
+const router = useRouter()
+const { showHeader } = useApp()
+
+router.afterEach((to, from, next) => {
+  showHeader()
 })
 </script>
 

@@ -22,28 +22,28 @@
             @click="showModal(event.avatar_url)" />
           <PlaceholderPhoto v-else />
         </div>
-        <div class="flex mt-9 lg:mt-0 lg:justify-end lg:pl-4"">
+        <div class="flex mt-9 lg:mt-0 lg:justify-end lg:pl-4">
           <VCalendar :attributes="calendarAttributes" :isDark="isDark" :locale="locale" />
+        </div>
       </div>
-    </div>
 
-    <div class="mt-13 lg:mt-10 whitespace-pre-wrap font-medium" v-if="event">
-      <MapPinIcon class="inline w-6 text-red-700 mr-2.5 -mt-1.3" />{{ event.location }}
-    </div>
+      <div class="mt-13 lg:mt-10 whitespace-pre-wrap font-medium" v-if="event">
+        <MapPinIcon class="inline w-6 text-red-700 mr-2.5 -mt-1.3" />{{ event.location }}
+      </div>
 
-    <div class="mt-5 whitespace-pre-wrap font-medium" v-if="event">
-      <CalendarIcon class="inline w-6 text-red-700 mr-2.5 -mt-1.3" />{{ eventDateFormatted }}
-    </div>
+      <div class="mt-5 whitespace-pre-wrap font-medium" v-if="event">
+        <CalendarIcon class="inline w-6 text-red-700 mr-2.5 -mt-1.3" />{{ eventDateFormatted }}
+      </div>
 
-    <div class="mt-9 whitespace-pre-wrap" v-if="event">
-      {{ event.description }}
-    </div>
+      <div class="mt-9 whitespace-pre-wrap" v-if="event">
+        {{ event.description }}
+      </div>
 
-    <div class="mt-14">
-      <Button @click="goBack" class="!px-8">Zurück</Button>
-    </div>
+      <div class="mt-14">
+        <Button @click="goBack" class="!px-8">Zurück</Button>
+      </div>
 
-    <div class="h-60"></div>
+      <div class="h-60"></div>
     </div>
   </Page>
 </template>

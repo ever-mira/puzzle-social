@@ -14,7 +14,7 @@
       <div class="flex-1">
         <div class="mt-11 lg:mt-4">
           <Button color="indigo" to="/places/create" class="!px-5">
-            <PlusIcon class="inline w-4.5 mr-2 -mt.5" />Ort eintragen
+            <PlusIcon class="inline w-4.5 mr-2 -mt.5" />Projekt eintragen
           </Button>
         </div>
       </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-5 lg: gap-y-4 xl:max-w-90% 2xl:max-w-75%"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-5 lg:gap-y-3 xl:max-w-90% 2xl:max-w-75%"
       v-if="places">
 
       <NuxtLink :to="`/places/${place.id}`"
@@ -32,7 +32,7 @@
         v-for="place in places" :key="place.id">
 
         <div class="flex">
-          <NuxtImg :src="place.avatar_url || ''" class="w-15 rounded-full" height="70" width="70" fit="cover"
+          <NuxtImg :src="place.avatar_url || ''" class="w-17 rounded-full" height="70" width="70" fit="cover"
             v-if="place.avatar_url" />
           <PlaceholderPhotoSmall v-else />
           <div class="py-.5 px-3">

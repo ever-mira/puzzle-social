@@ -23,15 +23,15 @@
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-2 xl:max-w-90% 2xl:max-w-80%"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-3 xl:max-w-90% 2xl:max-w-80%"
       v-if="events">
 
       <NuxtLink :to="`/events/${event.id}`"
-        class="block ml-3 bg-blue-50 hover:bg-blue-100 dark:bg-gray-950 dark:hover:bg-gray-900 bg-opacity-40 hover:bg-opacity-40 py-3 pl-2 pr-5 rounded-xl"
+        class="block ml-3 bg-blue-50 hover:bg-blue-100 dark:bg-gray-950 dark:hover:bg-gray-900 bg-opacity-40 hover:bg-opacity-40 py-2.5 pl-2 pr-5 rounded-xl"
         v-for="event in events" :key="event.id">
 
         <div class="flex">
-          <NuxtImg :src="event.avatar_url || ''" class="w-15 rounded-full" height="70" width="70" fit="cover"
+          <NuxtImg :src="event.avatar_url || ''" class="w-17 rounded-full" height="70" width="70" fit="cover"
             v-if="event.avatar_url" />
           <PlaceholderPhotoSmall v-else />
 

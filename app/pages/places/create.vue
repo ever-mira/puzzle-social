@@ -1,7 +1,7 @@
 <template>
   <Page>
     <Heading>
-      Ort eintragen
+      Projekt eintragen
       <template v-slot:subtitle>
         füge einen neuen Ort hinzu
       </template>

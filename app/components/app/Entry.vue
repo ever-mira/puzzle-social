@@ -1,6 +1,6 @@
 <template>
   <div class="-ml.5">
-    <div class="ml-3 md:ml-7">
+    <div class="ml-2 md:ml-7">
 
       <div class="text-[2.55rem] lg:text-[3.4rem] gradient-glow-text mt-8 font-figtree" data-text="Puzzle Social z-10">
         <span class="whitespace-nowrap">Puzzle.
