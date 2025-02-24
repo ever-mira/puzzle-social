@@ -43,7 +43,15 @@
 
     <div class="border-t border-gray-200 dark:border-gray-700 mt-7 pt-1.5" v-if="user">
       <NavLink to="/conversations">
-        <EnvelopeIcon class="inline w-5.5 text-sky-600 -mt.5 mr-4" />{{ $t('app.mailbox') }}
+        <div class="relative">
+          <EnvelopeIcon class="inline w-5.5 text-sky-600 -mt.5 mr-4" />{{
+            $t('app.mailbox') }}
+          <div
+            class="inline-flex h-4.8 w-4.8 ml-2 items-center justify-center rounded-full bg-blue-600 text-white text-sm leading-none"
+            v-if="unreadConversationCount">
+            <div class="-ml.1 -mt.45 font-normal">{{ unreadConversationCount }}</div>
+          </div>
+        </div>
       </NavLink>
       <NavLink to="/settings">
         <Cog6ToothIcon class="inline w-5.5 text-sky-600 -mt.5 mr-4" />{{ $t('app.settings') }}
@@ -93,6 +101,9 @@ const user: Ref = useSupabaseUser()
 const supabase = useSupabaseClient()
 const { setStepComponent, reset } = useSteps()
 const { isSidebarVisible, hideSidebar } = useApp()
+const { unreadConversationCount, fetchUnreadConversationCount } = useConversations()
+
+await fetchUnreadConversationCount()
 
 const logout = async () => {
   await supabase.auth.signOut()

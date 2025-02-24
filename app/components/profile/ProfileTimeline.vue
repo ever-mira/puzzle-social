@@ -8,7 +8,7 @@
       <div class="mt-6 lg:mt-7" v-if="profile.created_at">
         <div class="grow font-medium">{{ formatDate(profile.created_at) }}</div>
         <div class="grow mt-2">
-          <CakeIcon class="inline w-5 -mt-1 mr-2" />Bei Trippy angemeldet
+          <CakeIcon class="inline w-5 -mt-1 mr-2" />Bei Puzzle angemeldet
         </div>
       </div>
 
