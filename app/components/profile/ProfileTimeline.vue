@@ -1,14 +1,14 @@
 <template>
   <div class="border-l border-gray-3 pl-3">
     <div class="text-xl">
-      <SparklesIcon class="inline w-5 -mt-1 mr-2" />Action
+      <SparklesIcon class="inline w-5.5 text-gray-900 dark:text-gray-200 -mt-1 mr-2" />Action
     </div>
 
-    <div class="lg:text-lg">
-      <div class="mt-6 lg:mt-7">
-        <div class="grow  font-medium">{{ formatDate(props.registerDate) }}</div>
+    <div class="lg:text-lg" v-if="profile">
+      <div class="mt-6 lg:mt-7" v-if="profile.created_at">
+        <div class="grow font-medium">{{ formatDate(profile.created_at) }}</div>
         <div class="grow mt-2">
-          <CakeIcon class="inline w-5 -mt-1 mr-2" />Bei Puzzle angemeldet
+          <CakeIcon class="inline w-5 -mt-1 mr-2" />Bei Trippy angemeldet
         </div>
       </div>
 
@@ -23,7 +23,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -36,24 +35,12 @@ import { PencilIcon } from '@heroicons/vue/24/outline'
 import type { Tables } from "~~/types/database.types"
 type ExchangeItem = Tables<"exchange_items">
 
-const props = defineProps({
-  registerDate: { type: String, required: true },
-  userId: { type: String, required: true },
-})
+const { profile } = useProfile()
 
-const exchange_items = useState<ExchangeItem[] | null>("user_exchange_items", () => null)
-
-const { data } = await useFetch<ExchangeItem[]>("/api/exchange/items/" + `?user_id=${props.userId}`, {
+const { data: exchange_items } = await useFetch<ExchangeItem[]>("/api/exchange/items/" + `?user_id=${profile.value?.user_id}`, {
   method: "GET",
   headers: useRequestHeaders(["cookie"]),
 })
-
-if (data.value) exchange_items.value = data.value
-
-const formatDate = (dateString: string) => {
-  let formattedDate: string = format(new Date(dateString), "d. MMMM yyyy", { locale: de })
-  return formattedDate
-}
 
 let previousDate: string = ''
 
@@ -66,4 +53,10 @@ if (exchange_items.value) {
     previousDate = formattedDate
   })
 }
+
+function formatDate(dateString: string) {
+  let formattedDate: string = format(new Date(dateString), "d. MMMM yyyy", { locale: de })
+  return formattedDate
+}
+
 </script>
