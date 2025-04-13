@@ -42,15 +42,18 @@
         </div>
 
       </NuxtLink>
-
     </div>
+
+    <HintBox class="mt-19 lg:mt-22" name="places_and_projects" :icon="GlobeEuropeAfricaIcon">
+      Mache Orte sichtbar, die mehr Aufmerksamkeit verdienen.</HintBox>
+
     <div class="h-80"></div>
 
   </Page>
 </template>
 
 <script setup lang="ts">
-import { PlusIcon } from '@heroicons/vue/24/solid'
+import { PlusIcon, GlobeEuropeAfricaIcon } from '@heroicons/vue/24/solid'
 
 const { data: places } = await useFetch(`/api/places/`, {
   method: 'GET',

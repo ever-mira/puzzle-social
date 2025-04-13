@@ -24,6 +24,10 @@
       <a :href="place.website" target="_blank" class="text-blue-600">{{ place.website }}</a>
     </div>
 
+    <div class="pt-6" v-if="place && place.website">
+      {{ place.description }}.
+    </div>
+
     <div class="mt-11">
       <Button @click="goBack" class="!px-8">Zurück</Button>
     </div>

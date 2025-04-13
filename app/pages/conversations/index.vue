@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <HintBox class="mt-19">
+    <HintBox class="mt-19" name="messages_improvisation" :icon="EnvelopeOpenIcon">
       Experiment: neue Menschen mit einem
       Zufalls-Satz
       anschreiben. In der Improvisation (Schreiben bevor man denken kann) liegt eine merkwürdige
@@ -28,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { EnvelopeOpenIcon } from "@heroicons/vue/24/outline"
 import ConversationTile
   from '~/components/conversation/ConversationTile.vue';
 const { conversations, fetchConversations } = useConversations()

@@ -42,14 +42,18 @@
         </div>
 
       </NuxtLink>
-
     </div>
+
+    <HintBox class="mt-19 lg:mt-22" name="events_possibilities" :icon="CalendarIcon">
+      Erstelle Events, die dir wirklich wichtig sind, und erschaffe neue Möglichkeiten.</HintBox>
+
     <div class="h-80"></div>
 
   </Page>
 </template>
 
 <script setup lang="ts">
+import { CalendarIcon } from '@heroicons/vue/24/solid'
 import type { Tables } from "~~/types/database.types"
 type Event = Tables<"events">
 import { format } from "date-fns"

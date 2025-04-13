@@ -56,12 +56,16 @@
     <div v-if="items.length === 0" class="text-gray-700">
       Noch keine Einträge in dieser Kategorie.
     </div>
+
+    <HintBox class="mt-19 lg:mt-22" name="exchange_friends" :icon="RocketLaunchIcon">
+      Dinge tauschen, weil es Spaß macht, und neue Freunde finden.</HintBox>
     <div class="h-80"></div>
   </Page>
 </template>
 
 <script setup lang="ts">
 import { PlusIcon } from '@heroicons/vue/24/solid'
+import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
 const { items, loadItems, filter_category_id } = useExchange()
 
