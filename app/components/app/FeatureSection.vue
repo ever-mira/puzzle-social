@@ -4,20 +4,20 @@
     <FeatureBox>
       Konzepte & Strukturen
       <template v-slot:content>
-        Wissen und Erkenntnisse teilen.
+        Wissen und Erkenntnisse teilen
       </template>
     </FeatureBox>
 
     <FeatureBox>
       Visionen & Träume
       <template v-slot:content>
-        Realitäten wahr werden lassen.
+        Realitäten wahr werden lassen
       </template>
     </FeatureBox>
   </div>
 
   <div class="mt-22 ml-3 lg:ml-7">
-    <span class="text-3xl">Konzepte & Strukturen.</span><br>
+    <span class="text-3xl">Konzepte & Strukturen</span><br>
   </div>
 
   <div class="mt-10 lg:mt-13 ml-3 lg:ml-7">
@@ -33,7 +33,7 @@
   </div>
 
   <div class="mt-22 ml-3 lg:ml-7">
-    <span class="text-3xl">Visionen & Träume.</span><br>
+    <span class="text-3xl">Visionen & Träume</span><br>
   </div>
 
   <div class="mt-10 lg:mt-13 ml-3 lg:ml-7">
@@ -45,7 +45,7 @@
   </div>
 
 
-  <img src="assets/begriffe.png" class="mx-auto lg:ml-10% md:w-70% lg:w-60% 2xl:w-60% 3xl:w-50% mt-15">
+  <img src="assets/begriffe.png" class="mx-auto lg:ml-10% md:w-70% lg:w-65% 2xl:w-50% 3xl:w-45% mt-15">
 
   <div class="mt-19 mb-11">
     <h2 class="text-2xl">Es gibt so viel Potenzial, das nur noch nicht sichtbar genug ist.</h2>

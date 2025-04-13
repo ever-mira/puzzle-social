@@ -18,7 +18,7 @@
       <div class="flex flex-col lg:flex-row mt-9 lg:mt-11" v-if="event">
         <div class="flex-1">
           <NuxtImg :src="event.avatar_url || undefined"
-            class="rounded-lg md:w-70% lg:w-90% 3xl:w-73% max-h-170 cursor-pointer" width="700" v-if="event.avatar_url"
+            class="rounded-lg md:w-70% lg:w-90% 3xl:w-70% max-h-170 cursor-pointer" width="700" v-if="event.avatar_url"
             @click="showModal(event.avatar_url)" />
           <PlaceholderPhoto v-else />
         </div>

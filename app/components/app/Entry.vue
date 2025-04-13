@@ -11,7 +11,7 @@
         Community Network.</div>
 
       <div class="mt-2 text-lg">
-        Regionale Vernetzung für Nachhaltige Projekte.
+        Regionale Vernetzung für Menschen.
       </div>
 
       <div class="mt-8 lg:mt-9">
@@ -29,6 +29,13 @@
             {{ $t('app.your_profile') }}
           </Button>
         </div>
+
+        <h3 class="text-2xl mt-20">Dinge Tauschen.</h3>
+
+        <span class="block text-lg mt-2 lg:mt-1">Dinge und Dienstleitungen tauschen, und neue Menschen
+          kennenlernen.</span><br>
+        <NuxtLink to="/exchange" class="text-blue-700 hover:text-blue-600  text-lg">Zum Tauschen →</NuxtLink>
+
 
         <h3 class="text-2xl mt-20">Nachhaltige Projekte fördern.</h3>
 
