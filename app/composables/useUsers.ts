@@ -10,9 +10,15 @@ const selectedLocation = ref()
 export function useUsers() {
   const users = useState<ProfileWithDistance[] | null>("users", () => null)
 
-  async function loadUsers() {
+  async function loadUsers(limit?: number) {
     selectedLocation.value = null
-    const { data } = await useFetch<Profile[]>(`/api/users/`, {
+    let url = "/api/users/"
+
+    if (limit) {
+      url += `?limit=${limit}`
+    }
+
+    const { data } = await useFetch<Profile[]>(url, {
       method: "GET",
       headers: useRequestHeaders(["cookie"]),
     })
@@ -21,13 +27,16 @@ export function useUsers() {
 
   async function updateUserList(location?: Array<number>) {
     let url = "/api/users/"
+
+    const params = new URLSearchParams()
+
     if (location && location.length === 2) {
-      const lon = location[0]
-      const lat = location[1]
-      url += `?lon=${lon}&lat=${lat}`
+      params.append("lon", String(location[0]))
+      params.append("lat", String(location[1]))
     }
+
     try {
-      const newUsers = await $fetch<ProfileWithDistance[]>(url)
+      const newUsers = await $fetch<ProfileWithDistance[]>(`${url}?${params.toString()}`)
       users.value = newUsers
     } catch (error) {
       console.error(error)

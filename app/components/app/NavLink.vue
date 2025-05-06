@@ -1,8 +1,9 @@
 <template>
   <div class="pt-.5">
     <NuxtLink :to="to"
-      class="block w-full px-3 lg:px-4 py-3.5 md:py-3.3 rounded-xl hover:bg-highlight dark:hover:bg-highlight-dark leading-none"
-      :class="isLinkActive(to) ? 'bg-highlight dark:bg-highlight-dark font-medium' : ''" @click="hideSidebar">
+      class="block w-full rounded-xl hover:bg-highlight dark:hover:bg-highlight-dark leading-none flex items-center space-x-4 p-4 py-3.5 rounded-xl dark:shadow-gray-900/10 dark:hover:shadow-gray-900/20 transition-all"
+      :class="isLinkActive(to) ? '!bg-highlight !dark:bg-highlight-dark font-medium !shadow-md' : ''"
+      @click="hideSidebar">
       <slot></slot>
     </NuxtLink>
   </div>

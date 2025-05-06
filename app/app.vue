@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative overflow-hidden max-h-screen 3xl:max-w-90vw 4xl:max-w-85vw mx-auto bg-white dark:bg-[#121212] lg:dark:bg-black z-0">
+    class="relative overflow-hidden max-h-screen 3xl:max-w-90vw 4xl:max-w-85vw mx-auto bg-white dark:bg-[#0a0a0a]/80 z-0">
     <NuxtLoadingIndicator />
 
     <aside>
@@ -48,7 +48,7 @@ router.afterEach((to, from, next) => {
   position: absolute;
   height: 100%;
   width: 100%;
-  transition: opacity 0.0s ease;
+  transition: opacity 0.27s ease;
 }
 
 .page-enter-from {

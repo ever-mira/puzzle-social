@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-blue-50 dark:bg-black dark:border dark:border-gray-800 text-blue-900 dark:text-blue-300 bg-opacity-50 p-4 md:p-5 rounded-xl flex flex-col cursor-pointer"
+    class="bg-blue-50 dark:bg-black dark:border border border-blue-100 dark:border-gray-800 text-blue-900 dark:text-blue-300 bg-opacity-40 p-4 md:p-5.3 rounded-xl flex flex-col cursor-pointer"
     @click="isOpen = !isOpen">
     <div class="flex">
       <div class="px-2.5">
@@ -19,7 +19,7 @@
     <div class="mt-7" v-if="isOpen">
       <slot name="addition"></slot>
     </div>
-    <div class="mt-6 cursor-default" @click.stop="" v-if="isOpen">
+    <div class="mt-7 cursor-default" @click.stop="" v-if="isOpen">
       <Comments category="hints" :resourceId="props.name" />
     </div>
   </div>

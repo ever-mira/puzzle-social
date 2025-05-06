@@ -23,26 +23,11 @@
       </div>
     </div>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-5 lg:gap-y-3 xl:max-w-90% 2xl:max-w-75%"
-      v-if="places">
-
-      <NuxtLink :to="`/places/${place.id}`"
-        class="block ml-3 bg-blue-50 hover:bg-blue-100 dark:bg-gray-950 dark:hover:bg-gray-900 bg-opacity-40 hover:bg-opacity-40 py-3 pl-2 pr-5 rounded-xl"
-        v-for="place in places" :key="place.id">
-
-        <div class="flex">
-          <NuxtImg :src="place.avatar_url || ''" class="w-17 rounded-full" height="70" width="70" fit="cover"
-            v-if="place.avatar_url" />
-          <PlaceholderPhotoSmall v-else />
-          <div class="py-.5 px-3">
-            <div>{{ place.name }}</div>
-            <div class="text-sm text-gray-500">{{ place.description }}</div>
-          </div>
-        </div>
-
-      </NuxtLink>
-    </div>
+    <ListGrid v-if="places">
+      <ListTile v-for="place in places" :key="place.id" :url="`/places/${place.id}`" :avatarUrl="place.avatar_url || ''"
+        :title="place.name" :subtitle="place.description">
+      </ListTile>
+    </ListGrid>
 
     <HintBox class="mt-19 lg:mt-22" name="places_and_projects" :icon="GlobeEuropeAfricaIcon">
       Mache Orte sichtbar, die mehr Aufmerksamkeit verdienen.</HintBox>

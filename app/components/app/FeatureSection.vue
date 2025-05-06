@@ -1,6 +1,6 @@
 <template>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 mt-19 gap-4 w-full xl:w-90% 2xl:w-80% 3xl:w-75%">
+  <div class="grid grid-cols-1 lg:grid-cols-2 mt-25 gap-4 w-full xl:w-90% 2xl:w-80% 3xl:w-75%">
     <FeatureBox>
       Konzepte & Strukturen
       <template v-slot:content>
@@ -45,16 +45,16 @@
   </div>
 
 
-  <img src="assets/begriffe.png" class="mx-auto lg:ml-10% md:w-70% lg:w-65% 2xl:w-50% 3xl:w-45% mt-15">
+  <img src="assets/begriffe.png" class="mx-auto lg:ml-10% md:w-65% lg:w-60% 2xl:w-45% 3xl:w-40% mt-15">
 
-  <div class="mt-19 mb-11">
-    <h2 class="text-2xl">Es gibt so viel Potenzial, das nur noch nicht sichtbar genug ist.</h2>
+  <div class="mt-19 mb-14">
+    <h2 class="text-2xl">Es gibt viel Potenzial, das noch nicht sichtbar genug ist.</h2>
     <span class="text-lg text-gray-700 dark:text-gray-400">Erschaffe dir ein Bild
       davon,
       was bereits jetzt alles wunderbares passiert.</span>
   </div>
 
-  <Button color="indigo" to="/places" class="!px-8">
+  <Button color="indigo" to="/places">
     Projekte erkunden
   </Button>
 

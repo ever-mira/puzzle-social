@@ -2,34 +2,25 @@
   <div>
     <div class="mt-7 mb-2 text-gray-800 dark:text-gray-200">Umkreissuche:</div>
     <AutocompleteLocation v-model="selectedLocation" />
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-3 lg:gap-y-2.5 xl:max-w-90% 2xl:max-w-80%"
-      v-if="users">
-      <div v-for="user in users" :key="user.user_id"
-        class="ml-3 bg-blue-50 hover:bg-blue-100 dark:bg-gray-950 dark:hover:bg-gray-900 bg-opacity-40 hover:bg-opacity-40 py-1.5 pl-2 pr-5 rounded-xl">
-        <NuxtLink :to="`/@${user.username}`" class="flex flex-row">
-          <div class="flex">
-            <NuxtImg :src="user.avatar_url" fit="cover" width="60" height="60"
-              class="w-15 h-15 rounded-full shadow-mdsm" v-if="user.avatar_url" />
-            <img src="../../assets/avatar.jpg" class="w-14 rounded-full" v-else />
-            <div class="py-.5 px-3">
-              <div>{{ user.username }}</div>
-              <div class="text-sm text-gray-500">{{ user.location_label }}</div>
+
+    <ListGrid v-if="users">
+      <ListTile v-for="user in users" :key="user.user_id" :url="`/@${user.username}`" :avatarUrl="user.avatar_url || ''"
+        :title="user.username" :subtitle="user.location_label">
+
+        <template v-slot:right>
+          <div v-if="user.distance || user.distance === 0" class="text-right">
+            <div class="text-sm" v-if="user.distance === 0">0 km</div>
+            <div class="text-sm" v-if="user.distance > 0 && user.distance < 10">{{ user.distance.toFixed(1) }} km
             </div>
+            <div class="text-sm" v-if="user.distance > 10">{{ user.distance.toFixed(0) }} km</div>
           </div>
-          <div class="flex flex-1 flex-col text-gray-800 dark:text-gray-200">
-            <div v-if="user.distance || user.distance === 0" class="text-right">
-              <div class="text-sm" v-if="user.distance === 0">0 km</div>
-              <div class="text-sm" v-if="user.distance > 0 && user.distance < 10">{{ user.distance.toFixed(1) }} km
-              </div>
-              <div class="text-sm" v-if="user.distance > 10">{{ user.distance.toFixed(0) }} km</div>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-    <div class="h-80"></div>
+        </template>
+
+      </ListTile>
+    </ListGrid>
+
   </div>
+  <div class="h-80"></div>
 </template>
 
 <script setup lang="ts">

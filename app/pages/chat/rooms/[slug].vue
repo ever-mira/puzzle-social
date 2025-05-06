@@ -1,5 +1,5 @@
 <template>
-  <div class="p-1.5 rounded-xl mt-7 lg:mt-0 mb-17">
+  <div class="p-1.5 rounded-xl mt-7 lg:mt-0 mb-17 shadow-sm">
     <div class="p-3 bg-white dark:bg-black bg-opacity-50 rounded-xl min-h-100 max-h-120 overflow-y-scroll"
       ref="scrollContainer">
       <div class="text-gray-600" v-if="!connected">

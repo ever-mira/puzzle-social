@@ -1,47 +1,37 @@
 <template>
-  <div class="-ml.5">
-    <div class="ml-2 md:ml-7">
-
-      <div class="text-[2.55rem] lg:text-[3.4rem] gradient-glow-text mt-8 font-figtree" data-text="Puzzle Social z-10">
-        <span class="whitespace-nowrap">Puzzle.
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </div>
-      <div
-        class="text-[1.8rem] lg:text-[2.7rem] font-bold font-figtree text-gray-800 dark:text-gray-100 md:mt-.9 whitespace-nowrap">
-        Community Network.</div>
-
-      <div class="mt-2 text-lg">
-        Regionale Vernetzung für Menschen.
-      </div>
-
-      <div class="mt-8 lg:mt-9">
-        <div v-if="!user">
-          <Button color="blue" @click="startClick" class="!px-8">
-            {{ $t('app.start') }}
-          </Button>
-
-          <Button color="white" @click="loginClick" class="!px-7 ml-1.5">
-            {{ $t('app.login') }}
-          </Button>
+  <div>
+    <div class="md:ml-7">
+      <div class="text-center">
+        <div class="animate-float">
+          <div class="text-[3.5rem] lg:text-[4.5rem] gradient-glow-text mt-8 font-figtree" data-text="Puzzle Social">
+            <span class="whitespace-nowrap">Puzzle.</span>
+          </div>
         </div>
-        <div v-if="user">
-          <Button color="indigo" :to="`/@${profile?.username}`" class="!px-5">
-            {{ $t('app.your_profile') }}
-          </Button>
+        <div
+          class="text-[2rem] lg:text-[2.5rem] font-bold font-figtree text-gray-800 dark:text-gray-100 mt-4 whitespace-nowrap">
+          Community Network.
         </div>
 
-        <h3 class="text-2xl mt-20">Dinge Tauschen.</h3>
+        <p class="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Das Soziale Netzwerk für eine neue Realität.
+        </p>
 
-        <span class="block text-lg mt-2 lg:mt-1">Dinge und Dienstleitungen tauschen, und neue Menschen
-          kennenlernen.</span><br>
-        <NuxtLink to="/exchange" class="text-blue-700 hover:text-blue-600  text-lg">Zum Tauschen →</NuxtLink>
+        <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 xl:w-130 2xl:w-160">
+          <div v-if="!user">
+            <Button color="indigo" @click="startClick" class="!px-9 !py-1.8 text-lg">
+              {{ $t('app.start') }}
+            </Button>
 
-
-        <h3 class="text-2xl mt-20">Nachhaltige Projekte fördern.</h3>
-
-        <span class="block text-lg mt-2 lg:mt-1">Ein Beziehungsnetzwerk, um nachhaltige Projekte
-          sichtbar zu machen, und Vernetzung zu fördern.</span><br>
-        <NuxtLink to="/places" class="text-blue-700 hover:text-blue-600  text-lg">Zu den Projekten →</NuxtLink>
+            <Button color="transparent" @click="loginClick" class="!px-7 !py-1.8 text-lg ml-4">
+              {{ $t('app.login') }}
+            </Button>
+          </div>
+          <div v-if="user">
+            <Button color="indigo" :to="`/@${profile?.username}`" class="!px-8 !py-1.8 text-lg">
+              {{ $t('app.your_profile') }}
+            </Button>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -77,23 +67,7 @@ const loginClick = () => {
   position: relative;
   font-weight: 600;
   color: transparent;
-  line-height: 35px;
-}
-
-.gradient-glow-text::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg,
-      var(--color-error) 0%,
-      var(--color-secondary) 40%,
-      var(--color-primary) 60%,
-      var(--color-accent) 100%);
-  filter: blur(19px);
-  z-index: -1;
+  line-height: 1.2;
 }
 
 .gradient-glow-text span {

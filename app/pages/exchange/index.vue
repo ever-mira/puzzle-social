@@ -29,30 +29,15 @@
       </select>
     </div>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -ml-5 mt-15 gap-x-.5 lg:gap-x-5 gap-y-5 lg:gap-y-4 xl:max-w-90% 2xl:max-w-85% 2xl:max-w-75%"
-      v-if="items">
-
-      <NuxtLink :to="`/exchange/items/${item.id}`"
-        class="block ml-3 bg-blue-50 hover:bg-blue-100 dark:bg-gray-950 dark:hover:bg-gray-900 bg-opacity-40 hover:bg-opacity-40 py-2.5 pl-2 pr-5 rounded-xl"
-        v-for="item in items" :key="item.id">
-
-        <div class="flex">
-          <div class="flex grow">
-            <NuxtImg :src="item.avatar_url || ''" class="w-17 rounded-full" height="70" width="70" fit="cover"
-              v-if="item.avatar_url" />
-            <PlaceholderPhotoSmall v-else />
-            <div class="py-.5 px-3">
-              <div class="">{{ item.title }}</div>
-              <div class="text-sm text-gray-500">{{ item.profiles.username }}</div>
-            </div>
-          </div>
+    <ListGrid v-if="items">
+      <ListTile v-for="item in items" :key="item.id" :url="`/exchange/items/${item.id}`"
+        :avatarUrl="item.avatar_url || ''" :title="item.title" :subtitle="item.profiles.username">
+        <template v-slot:right>
           <div class="text-right text-sm text-gray-600">{{ item.exchange_categories.name }}</div>
-        </div>
+        </template>
+      </ListTile>
+    </ListGrid>
 
-      </NuxtLink>
-
-    </div>
     <div v-if="items.length === 0" class="text-gray-700">
       Noch keine Einträge in dieser Kategorie.
     </div>

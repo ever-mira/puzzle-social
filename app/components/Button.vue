@@ -26,37 +26,37 @@ const props = defineProps<Props>()
 const emit = defineEmits<{ (e: 'click'): void }>()
 
 
-const baseClasses = 'text-white focus:outline-none rounded-xl !text-[.9rem] font-medium disabled:cursor-default cursor-pointer text-center shadow-sm transition-all duration-100'
+const baseClasses = 'text-white focus:outline-none rounded-xl !text-[.9rem] font-medium disabled:cursor-default cursor-pointer text-center shadow-sm transition-all duration-200'
 
 const sizeClasses = computed(() => {
   switch (props.size) {
     case 'small':
-      return 'px-3.75 py-2 text-sm'
+      return 'px-4 py-2 text-sm'
     case 'large':
-      return 'py-2.3 px-9 text-sm'
+      return 'py-3 px-8 text-lg'
     default:
-      return 'py-2.3 px-9 text-sm'
+      return 'py-2.5 px-6 text-base'
   }
 })
 
 const colorClasses = computed(() => {
   switch (props.color) {
     case 'indigo':
-      return 'bg-indigo-200 !text-indigo-800 dark:!text-indigo-100 hover:bg-indigo-300 dark:bg-indigo-800 dark:hover:bg-indigo-700'
+      return 'bg-indigo-600 !text-white dark:!text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500 shadow-md hover:shadow-lg'
     case 'indigo_dark':
-      return 'bg-indigo-500 !text-indigo-800 dark:!text-indigo-100 hover:bg-indigo-600 dark:bg-indigo-800 dark:hover:bg-indigo-700'
+      return 'bg-indigo-600 !text-white dark:!text-white hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600 shadow-md hover:shadow-lg'
     case 'red':
-      return 'bg-red-100 !text-red-600 dark:!text-red-200 hover:bg-red-200 dark:bg-red-900 dark:hover:bg-red-800'
+      return 'bg-red-500 !text-white dark:!text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-500 shadow-md hover:shadow-lg'
     case 'blue':
-      return 'bg-blue-500 !text-white dark:!text-blue-200 hover:bg-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800'
+      return 'bg-primary-500 !text-white dark:!text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500 shadow-md hover:shadow-lg'
     case 'transparent':
-      return '!text-gray-800 !dark:text-gray-300 dark:hover:bg-gray-900 !shadow-none'
+      return '!text-gray-800 !dark:text-gray-200 dark:hover:bg-gray-800/50 !shadow-none hover:bg-gray-100 dark:hover:bg-gray-800/30'
     case 'white':
-      return '!text-gray-800 bg-white dark:bg-black !dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900'
+      return '!text-gray-800 bg-white dark:bg-gray-900 !dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 shadow-md hover:shadow-lg'
     case 'gray':
-      return '!text-gray-800 !dark:text-gray-300 bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800'
+      return '!text-gray-800 !dark:text-gray-200 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 shadow-sm hover:shadow-md'
     default:
-      return 'bg-indigo-200 disabled:bg-gray-200 !text-indigo-800 disabled:!text-gray-600 dark:!text-indigo-100 disabled:dark:!text-gray-400 enabled:hover:bg-indigo-300 dark:bg-indigo-800 disabled:dark:bg-gray-700 enabled:dark:hover:bg-indigo-700'
+      return 'bg-indigo-600 dark:bg-indigo-700 disabled:bg-gray-300 !text-white disabled:!text-gray-500 dark:!text-white disabled:dark:!text-gray-400 enabled:hover:bg-primary-600 dark:bg-primary-600 disabled:dark:bg-gray-700 enabled:dark:hover:bg-primary-500 shadow-md hover:shadow-lg'
   }
 })
 

@@ -7,7 +7,7 @@
       </template>
     </Heading>
 
-    <div class="mt-11 w-100">
+    <div class="mt-11 w-full lg:w-100">
       <div class="mb-7">
         <photo-upload @uploaded="onPhotoUploaded" category="event" :preview="true" class="mt-6"></photo-upload>
       </div>

@@ -14,7 +14,7 @@
     <Comment v-for="comment in comments" :key="comment.id" :comment="comment" :category="props.category"
       class="flex gap-x-3 mb-5 mt-7" @deleteClicked="onDeleteClicked" @respondClicked="onRespondClicked(comment)" />
 
-    <div class="mt-11">
+    <div class="mt-14">
       <span v-if="respondComment">
         <span class="text-lg">{{ t('answer_to') }}</span> <span class="text-md"> {{
           respondComment.profiles.username

@@ -15,7 +15,7 @@ export default defineConfig({
     ["text-sub", "text-gray-600"],
     ["text-sub-dark", "text-gray-400"],
     ["bg-highlight", "bg-[#f6f6f6]"],
-    ["bg-highlight-dark", "bg-[#0b0b19]"],
+    ["bg-highlight-dark", "bg-[#171717]"],
   ],
   theme: {
     fontFamily: {
@@ -48,7 +48,7 @@ export default defineConfig({
             opacity: 1;
           }
         }
-      `,
+              `,
     },
   ],
 })

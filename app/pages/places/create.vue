@@ -7,7 +7,7 @@
       </template>
     </Heading>
 
-    <div class="mt-11 w-120">
+    <div class="mt-11 w-full lg:w-120">
       <div class="mb-7">
         <photo-upload @uploaded="onPhotoUploaded" category="place" :preview="true" class="mt-6"></photo-upload>
       </div>

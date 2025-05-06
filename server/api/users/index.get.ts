@@ -5,7 +5,7 @@ import type { Database } from "~~/types/database.types"
 export default defineEventHandler(async (event) => {
   const supabase = await serverSupabaseClient<Database>(event)
 
-  const { lon, lat } = await getQuery(event)
+  const { lon, lat, limit } = await getQuery(event)
 
   try {
     if (lat && lon) {
@@ -20,11 +20,16 @@ export default defineEventHandler(async (event) => {
 
       return data
     } else {
-      const { data, error } = await supabase
+      const query = supabase
         .from("profiles")
         .select("user_id, username, avatar_url, location_label")
         .order("created_at", { ascending: false })
-        .limit(25)
+
+      if (limit) {
+        query.limit(Number(limit))
+      }
+
+      const { data, error } = await query
 
       if (error) {
         throw new Error("Fehler beim Laden der User: " + error.message)

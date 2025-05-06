@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-7 relative text-3xl font-bold">{{ $t('signup.second_step_title') }}</div>
+    <div class="mt-7 relative text-3xl font-bold">{{ username }}.</div>
 
     <div class="mt-1 relative text-lg text-gray-600 dark:text-gray-400">{{ $t('signup.second_step_subtitle') }}</div>
 

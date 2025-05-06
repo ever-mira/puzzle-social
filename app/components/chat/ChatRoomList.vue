@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col gap-y-.5 w-60 p-1 rounded-xl">
-    <div class="font-bold text-lg mb-1">{{ t('chat_rooms') }}</div>
+  <div class="flex flex-col gap-y-1 w-60 p-1 rounded-xl">
+    <div class="font-bold text-lg mb-4">{{ t('chat_rooms') }}</div>
 
     <NuxtLink :to="`/chat/rooms/${room.slug}`" v-for="room in rooms" :key="room.id"
-      class="px-3 py-1.5 hover:bg-highlight dark:hover:bg-highlight-dark cursor-pointer rounded-lg"
+      class="px-5 py-2.5 hover:bg-highlight dark:hover:bg-highlight-dark cursor-pointer rounded-lg"
       activeClass="bg-highlight dark:bg-highlight-dark font-semibold">
       {{ room.name }}</NuxtLink>
   </div>

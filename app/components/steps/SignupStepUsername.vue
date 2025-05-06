@@ -4,7 +4,7 @@
     <div class="mt-1 relative text-lg text-gray-600 dark:text-gray-300">{{ $t('signup.subtitle') }}</div>
 
     <div class="mt-12 relative">
-      <Input placeholder="Universum_123" v-model="username" focus class="!w-[235px] md:!w-[220px]"
+      <Input placeholder="Dein_Username" v-model="username" focus class="!w-[235px] md:!w-[220px]"
         @keydown.enter="next" />
       <div class="block clear-left md:clear-none md:inline ml.5 md:ml-3 mt-2 md:mt-0 text-green-600" v-if="available">
         {{ $t('signup.username_free') }}
