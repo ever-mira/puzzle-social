@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="mt-9 relative text-3xl font-bold text-heading">{{ $t('signup.logged_in') }}</div>
+    <div class="mt-9 relative text-3xl font-bold text-heading">{{ t('logged_in') }}</div>
     <div class="mt-9 relative">
-      {{ $t('signup.set_picture_hint') }}
+      {{ t('set_picture_hint') }}
     </div>
 
     <div class="mt-7" v-if="profile">
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import PhotoUpload from '~/components/user/PhotoUpload.vue'
 import Loggedin from './Loggedin.vue'
+const { t } = useI18n()
 const { setStepComponent } = useSteps()
 const { fetchUserData, profile } = useUser()
 const { updateUserList } = useUsers()
@@ -40,3 +41,14 @@ function preloadImages(supabaseUrl: string): void {
   imgB.src = cloudflareUrlBig
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "logged_in": "Eingeloggt.",
+    "set_picture_hint": "Setze ein Profilbild, wenn du möchtest."
+  },
+  "en": {
+    "logged_in": "You are logged in.",
+    "set_picture_hint": "Set a picture, if you want."
+  }
+}</i18n>

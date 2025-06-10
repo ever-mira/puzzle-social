@@ -1,18 +1,17 @@
 <template>
   <div>
-    <div class="mt-7 relative text-3xl font-bold text-heading">{{ $t('login.title') }}</div>
-    <div class="mt-1 relative text-lg text-gray-600 dark:text-gray-400">{{ $t('login.subtitle') }}</div>
+    <div class="mt-7 relative text-3xl font-bold text-heading">{{ t('title') }}</div>
+    <div class="mt-1 relative text-lg text-gray-600 dark:text-gray-400">{{ t('subtitle') }}</div>
     <table class="mt-7">
       <tbody>
         <tr>
           <td>
-            <Input type="email" ref="mailInputRef" :placeholder="$t('signup.email')" v-model="credentials.email"
-              focus />
+            <Input type="email" ref="mailInputRef" :placeholder="t('email')" v-model="credentials.email" focus />
           </td>
         </tr>
         <tr>
           <td class="pt-3.5">
-            <Input type="password" :placeholder="$t('signup.password')" v-model="credentials.password"
+            <Input type="password" :placeholder="t('password')" v-model="credentials.password"
               @keydown.enter="signIn" />
           </td>
         </tr>
@@ -22,13 +21,14 @@
       <span class="text-gray-700">{{ message }}</span>
     </div>
     <div class="mt-7">
-      <Button @click="signIn" class="!px-7.5">{{ $t('login.button') }}</button>
+      <Button @click="signIn" class="!px-7.5">{{ t('button') }}</button>
     </div>
   </div>
 </template>
 
 
 <script setup lang="ts">
+const { t } = useI18n()
 import Loggedin from "./Loggedin.vue"
 
 const { setStepComponent } = useSteps()
@@ -53,3 +53,20 @@ const signIn = async () => {
   }
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "title": "Login",
+    "subtitle": "Puzzle",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "button": "Login"
+  },
+  "en": {
+    "title": "Login",
+    "subtitle": "Puzzle",
+    "email": "E-Mail",
+    "password": "Password",
+    "button": "Login"
+  }
+}</i18n>

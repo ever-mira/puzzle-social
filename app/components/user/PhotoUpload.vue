@@ -12,13 +12,13 @@
       </svg>
 
       <span v-if="props.change && !uploading">
-        {{ $t('profile.change_image') }}
+        {{ t('change_image') }}
       </span>
       <span v-if="!props.change && !uploading">
-        {{ $t('profile.select_image') }}
+        {{ t('select_image') }}
       </span>
       <span v-if="uploading">
-        saving...&nbsp;
+        {{ t('savingStatus') }}&nbsp;
       </span>
     </label>
 
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+const { t } = useI18n()
 import Uppy from '@uppy/core'
 import XHRUpload from '@uppy/xhr-upload'
 
@@ -81,7 +82,7 @@ onMounted(() => {
         uploading.value = false
       }, 1100)
     } else {
-      throw new Error('Keine URL im Server-Response enthalten.')
+      throw new Error(t('noUrlInResponseError'))
     }
   })
 
@@ -96,7 +97,7 @@ let onImageSelected = (event: any) => {
     const file = event.target.files[0]
 
     if (file.size / 1000000 > 4) {
-      message.value = 'Bild zu groß. (maximal 2mb)'
+      message.value = t('imageTooLargeError')
     } else {
       uploading.value = true
       uppy.addFile({
@@ -108,3 +109,20 @@ let onImageSelected = (event: any) => {
   }
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "change_image": "Bild ändern",
+    "select_image": "Bild auswählen",
+    "savingStatus": "speichern...",
+    "noUrlInResponseError": "Keine URL im Server-Response enthalten.",
+    "imageTooLargeError": "Bild zu groß. (maximal 2mb)"
+  },
+  "en": {
+    "change_image": "Change Picture",
+    "select_image": "Select Picture",
+    "savingStatus": "saving...",
+    "noUrlInResponseError": "No URL included in server response.",
+    "imageTooLargeError": "Image too large. (maximum 2mb)"
+  }
+}</i18n>
