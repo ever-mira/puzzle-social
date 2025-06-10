@@ -1,9 +1,9 @@
 <template>
   <Page>
     <Heading>
-      Nachricht
+      {{ t('messageTitle') }}
       <template v-slot:subtitle>
-        Unterhaltung mit
+        {{ t('conversationWith') }}
         <NuxtLink :to="`/@${profile?.username}`" class="text-blue-600 hover:text-blue-500">@{{ profile?.username }}
         </NuxtLink>
       </template>
@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 import type { Tables } from "~~/types/database.types"
 type Profile = Tables<"profiles">
 import MessageWindow from "~/components/messaging/MessageWindow.vue"
@@ -40,3 +41,14 @@ async function fetchProfile() {
   }
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "messageTitle": "Nachricht",
+    "conversationWith": "Unterhaltung mit"
+  },
+  "en": {
+    "messageTitle": "Message",
+    "conversationWith": "Conversation with"
+  }
+}</i18n>

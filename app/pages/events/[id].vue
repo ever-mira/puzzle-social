@@ -7,7 +7,7 @@
       </template>
     </Heading>
     <Heading v-else>
-      event not found
+      {{ t('eventNotFound') }}
       <template v-slot:subtitle>
         404
         <div class="h-20"></div>
@@ -39,7 +39,7 @@
       </div>
 
       <div class="mt-14">
-        <Button @click="goBack" class="!px-8">Zurück</Button>
+        <Button @click="goBack" class="!px-8">{{ t('backButton') }}</Button>
       </div>
 
       <div class="h-60"></div>
@@ -64,7 +64,7 @@ if (id) {
 }
 
 const { showModal } = useImageModal()
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 
 const calendarAttributes = ref([
   {
@@ -78,3 +78,14 @@ const goBack = () => {
   router.back()
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "eventNotFound": "Event nicht gefunden",
+    "backButton": "Zurück"
+  },
+  "en": {
+    "eventNotFound": "event not found",
+    "backButton": "Back"
+  }
+}</i18n>

@@ -1,9 +1,9 @@
 <template>
   <Page>
     <Heading>
-      Veranstaltung eintragen
+      {{ t('pageTitle') }}
       <template v-slot:subtitle>
-        trage eine neue Veranstaltung ein.
+        {{ t('pageSubtitle') }}
       </template>
     </Heading>
 
@@ -12,13 +12,14 @@
         <photo-upload @uploaded="onPhotoUploaded" category="event" :preview="true" class="mt-6"></photo-upload>
       </div>
       <div class="mb-3">
-        <Input type="text" placeholder="Name der Veranstaltung" v-model="event.name" autofocus class="!w-full" />
+        <Input type="text" :placeholder="t('eventNamePlaceholder')" v-model="event.name" autofocus class="!w-full" />
       </div>
       <div class="mb-3">
-        <Textarea type="text" placeholder="Beschreibung" v-model="event.description" class="!w-full h-40 resize-none" />
+        <Textarea type="text" :placeholder="t('descriptionPlaceholder')" v-model="event.description"
+          class="!w-full h-40 resize-none" />
       </div>
       <div class="mb-7">
-        <Input type="text" placeholder="Ort" v-model="event.location" class="!w-full" />
+        <Input type="text" :placeholder="t('locationPlaceholder')" v-model="event.location" class="!w-full" />
       </div>
       <div class="mb-7">
         <VDatePicker v-model="event.date" mode="dateTime" is24hr :isDark="isDark" />
@@ -30,10 +31,10 @@
 
       <div class="mt-10 mb-50">
         <Button color="red" to="/places" class="!px-5.5">
-          Abbrechen
+          {{ t('cancelButton') }}
         </Button>
         <Button color="indigo" @click="save" class="ml-4 !px-5.5">
-          Speichern
+          {{ t('saveButton') }}
         </Button>
       </div>
 
@@ -45,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 import PhotoUpload from '~/components/user/PhotoUpload.vue'
 import ImagePreload from '~/components/app/ImagePreload.vue'
 
@@ -66,12 +68,12 @@ async function save() {
 
   try {
     if (!event.name || !event.description) {
-      message.value = 'Name und Beschreibung sind erforderlich'
+      message.value = t('nameDescriptionRequiredError')
       return
     }
 
     if (!user.value) {
-      message.value = 'Du musst eingeloggt sein, um eine Veranstaltung erstellen zu können.'
+      message.value = t('mustBeLoggedInError')
       return
     }
 
@@ -96,3 +98,28 @@ const { isDark } = useApp()
 </script>
 
 <style></style>
+
+<i18n lang="json">{
+  "de": {
+    "pageTitle": "Veranstaltung eintragen",
+    "pageSubtitle": "trage eine neue Veranstaltung ein.",
+    "eventNamePlaceholder": "Name der Veranstaltung",
+    "descriptionPlaceholder": "Beschreibung",
+    "locationPlaceholder": "Ort",
+    "cancelButton": "Abbrechen",
+    "saveButton": "Speichern",
+    "nameDescriptionRequiredError": "Name und Beschreibung sind erforderlich",
+    "mustBeLoggedInError": "Du musst eingeloggt sein, um eine Veranstaltung erstellen zu können."
+  },
+  "en": {
+    "pageTitle": "Submit Event",
+    "pageSubtitle": "Submit a new event.",
+    "eventNamePlaceholder": "Name of the event",
+    "descriptionPlaceholder": "Description",
+    "locationPlaceholder": "Location",
+    "cancelButton": "Cancel",
+    "saveButton": "Save",
+    "nameDescriptionRequiredError": "Name and description are required",
+    "mustBeLoggedInError": "You must be logged in to create an event."
+  }
+}</i18n>
