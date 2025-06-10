@@ -16,7 +16,7 @@
         class="absolute left-0 mt-2 h-auto max-h-100 overflow-y-scroll rounded-md shadow-lg bg-white dark:bg-black ring-1 ring-black ring-opacity-5 p-1 space-y-1 z-7"
         @click.stop v-if="isOpen">
 
-        <Input id="filter_input" type="text" :placeholder="$t('profile.location.country_filter')" autocomplete="off"
+        <Input id="filter_input" type="text" :placeholder="t('country_filter')" autocomplete="off"
           class="!py-1.4" v-model="filter" focus />
 
         <span v-for="(option) in filteredCountries"
@@ -51,7 +51,7 @@ let filter = ref('')
 const { t } = useI18n()
 
 const dropdownValue = computed(() => {
-  return selectedCountry.value ? selectedCountry.value.native : t('profile.location.select_country')
+  return selectedCountry.value ? selectedCountry.value.native : t('select_country')
 })
 
 const filteredCountries = computed(() => {
@@ -101,3 +101,14 @@ watch(() => props.modelValue, (newValue) => {
 
 
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "country_filter": "Filtern",
+    "select_country": "Land auswählen"
+  },
+  "en": {
+    "country_filter": "Filter",
+    "select_country": "Select country"
+  }
+}</i18n>

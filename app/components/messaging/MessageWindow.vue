@@ -9,7 +9,7 @@
     </div>
     <div class="grow xl:min-w-140 max-w-170">
       <div class="p-1 text-gray-500" v-if="!messages || messages.length < 1">
-        Noch keine Nachrichten.
+        {{ t('noMessagesYet') }}
       </div>
       <div class="min-h-10 lg:min-h-70 max-h-92 overscroll-x-none overflow-y-scroll no-scrollbar" ref="scrollContainer">
         <div v-for="message in messages" :key="message.id" class="w-full p-1">
@@ -33,7 +33,7 @@
         <div class="w-full h-3"></div>
       </div>
       <div class="md:flex gap-x-3 pt-1">
-        <Textarea type="text" placeholder="Nachricht" class="!w-full resize-none dark:bg-black !rounded-xl h-22 lg:h-18"
+        <Textarea type="text" :placeholder="t('messagePlaceholder')" class="!w-full resize-none dark:bg-black !rounded-xl h-22 lg:h-18"
           @keydown.enter.prevent="sendMessage" v-model="message" ref="textArea" focus maxlength="500" />
         <Button color="indigo_dark" class="self-start !px-6.5 !py-2 mt-2 md:mt-0" @click="sendMessage">
           <PaperAirplaneIcon class="inline w-5.5 text-white -mt.5" />
@@ -56,6 +56,7 @@ type Profile = Tables<"profiles">
 
 import { PaperAirplaneIcon } from "@heroicons/vue/24/solid"
 
+const { t } = useI18n()
 const props = defineProps({
   profile: {
     type: Object as PropType<Profile>,
@@ -99,3 +100,14 @@ onUnmounted(() => {
   setCurrentConversation(null)
 })
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "noMessagesYet": "Noch keine Nachrichten.",
+    "messagePlaceholder": "Nachricht"
+  },
+  "en": {
+    "noMessagesYet": "No messages yet.",
+    "messagePlaceholder": "Message"
+  }
+}</i18n>

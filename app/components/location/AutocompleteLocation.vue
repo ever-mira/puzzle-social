@@ -1,6 +1,6 @@
 <template>
   <div class="md:w-85">
-    <Input v-model="searchQuery" placeholder="Standort eingeben" @focus="onFocused" @blur="onBlur"
+    <Input v-model="searchQuery" :placeholder="t('placeholder')" @focus="onFocused" @blur="onBlur"
       :loading="isLoading" />
     <div class="relative">
       <div id="dropdown_list"
@@ -23,6 +23,7 @@ import { defineProps, defineEmits } from 'vue'
 import debounce from 'lodash.debounce'
 import ismobile from 'is-mobile'
 
+const { t } = useI18n()
 const props = defineProps({
   modelValue: {
     type: Object,
@@ -221,3 +222,12 @@ const getLabel = (properties: any) => {
 </script>
 
 <style scoped></style>
+
+<i18n lang="json">{
+  "de": {
+    "placeholder": "Standort eingeben"
+  },
+  "en": {
+    "placeholder": "Enter location"
+  }
+}</i18n>
