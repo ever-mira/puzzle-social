@@ -7,7 +7,7 @@
         <!-- Header -->
         <div class="bg-indigo-600 dark:bg-indigo-900 text-white py-1.5 px-4 rounded-t-md">
           <h2 class="text-lg font-semibold">
-            {{ $t('app.title') }}
+            {{ t('title') }}
           </h2>
         </div>
 
@@ -18,15 +18,15 @@
           <div class="h-10"></div>
 
           <Button color="indigo" @click="hideModal" class="mt-1" v-if="!yesNo">
-            {{ $t('app.ok') }}
+            {{ t('ok') }}
           </Button>
 
           <div v-else>
             <Button color="indigo" @click="yesClicked" class="mt-1">
-              {{ $t('app.yes') }}
+              {{ t('yes') }}
             </Button>
             <Button color="white" @click="hideModal" class="ml-4 mt-1">
-              {{ $t('app.cancel') }}
+              {{ t('cancel') }}
             </Button>
           </div>
         </div>
@@ -37,6 +37,7 @@
 
 
 <script setup lang="ts">
+const { t } = useI18n()
 const { hideModal, visible, text, yesNo, callback } = useModal()
 
 const yesClicked = () => {
@@ -46,3 +47,18 @@ const yesClicked = () => {
   hideModal()
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "title": "Puzzle.",
+    "ok": "Ok",
+    "yes": "Ja",
+    "cancel": "Abbrechen"
+  },
+  "en": {
+    "title": "Puzzle.",
+    "ok": "Ok",
+    "yes": "Yes",
+    "cancel": "Cancel"
+  }
+}</i18n>

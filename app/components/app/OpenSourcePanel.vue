@@ -5,13 +5,13 @@
       <SparklesIcon class="inline w-7" />
     </div>
     <div class="text-2xl">
-      Open Source
+      {{ t('title') }}
     </div>
     <div class="text-xl">
-      Built by the community
+      {{ t('builtByCommunity') }}
     </div>
     <div class="text-xl">
-      Help building
+      {{ t('helpBuilding') }}
       <CursorArrowRippleIcon class="inline w-7 mt-1" />
     </div>
     <div class="text-sm">
@@ -20,6 +20,20 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 import { SparklesIcon } from '@heroicons/vue/24/solid'
 import { CursorArrowRippleIcon } from '@heroicons/vue/24/solid'
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "title": "Open Source",
+    "builtByCommunity": "Von der Community entwickelt",
+    "helpBuilding": "Hilf mit beim Entwickeln"
+  },
+  "en": {
+    "title": "Open Source",
+    "builtByCommunity": "Built by the community",
+    "helpBuilding": "Help building"
+  }
+}</i18n>

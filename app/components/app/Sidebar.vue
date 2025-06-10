@@ -15,32 +15,32 @@
     <div class="space-y-2">
       <NavLink to="/" class="modern-list-item">
         <HomeIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.start') }}</span>
+        <span>{{ t('start') }}</span>
       </NavLink>
 
       <NavLink to="/people">
         <UserGroupIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.people') }}</span>
+        <span>{{ t('people') }}</span>
       </NavLink>
 
       <NavLink to="/places">
         <MapIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.places') }}</span>
+        <span>{{ t('places') }}</span>
       </NavLink>
 
       <NavLink to="/events">
         <CalendarDaysIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.events') }}</span>
+        <span>{{ t('events') }}</span>
       </NavLink>
 
       <NavLink to="/exchange">
         <ShareIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.exchange') }}</span>
+        <span>{{ t('exchange') }}</span>
       </NavLink>
 
       <NavLink to="/chat">
         <ChatBubbleLeftRightIcon class="w-6 h-6 text-indigo-600 inline mr-4" />
-        <span>{{ $t('menu.chat') }}</span>
+        <span>{{ t('chat') }}</span>
       </NavLink>
     </div>
 
@@ -52,7 +52,7 @@
       <NavLink to="/conversations">
         <div class="relative flex items-center">
           <EnvelopeIcon class="w-5 h-5 text-indigo-600" />
-          <span class="ml-4">{{ $t('app.mailbox') }}</span>
+          <span class="ml-4">{{ t('mailbox') }}</span>
           <div
             class="ml-auto inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs font-medium"
             v-if="unreadConversationCount">
@@ -62,10 +62,10 @@
       </NavLink>
       <NavLink to="/settings">
         <Cog6ToothIcon class="w-5 h-5 text-indigo-600" />
-        <span class="ml-4">{{ $t('app.settings') }}</span>
+        <span class="ml-4">{{ t('settings') }}</span>
       </NavLink>
       <div @click="logout" class="mt-4">
-        <span class="text-indigo-600 dark:text-primary-400">{{ $t('app.logout') }}</span>
+        <span class="text-indigo-600 dark:text-primary-400">{{ t('logout') }}</span>
       </div>
     </div>
 
@@ -103,7 +103,7 @@ import { ChatBubbleLeftRightIcon } from '@heroicons/vue/24/solid'
 import { EnvelopeIcon } from '@heroicons/vue/24/solid'
 import { Cog6ToothIcon } from '@heroicons/vue/24/solid'
 
-
+const { t } = useI18n()
 const router = useRouter()
 const user: Ref = useSupabaseUser()
 const supabase = useSupabaseClient()
@@ -122,3 +122,28 @@ const logout = async () => {
 }
 
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "start": "Startseite",
+    "people": "Profile",
+    "places": "Orte & Projekte",
+    "events": "Veranstaltungen",
+    "exchange": "Tauschen",
+    "chat": "Chat",
+    "mailbox": "Posteingang",
+    "settings": "Einstellungen",
+    "logout": "Logout"
+  },
+  "en": {
+    "start": "Startpage",
+    "people": "Profiles",
+    "places": "Places & Projects",
+    "events": "Events",
+    "exchange": "Exchange",
+    "chat": "Chat",
+    "mailbox": "Mailbox",
+    "settings": "Settings",
+    "logout": "Logout"
+  }
+}</i18n>
