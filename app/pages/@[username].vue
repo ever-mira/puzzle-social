@@ -7,7 +7,7 @@
       </template>
     </Heading>
     <Heading v-else>
-      {{ $t('profile.not_found') }}
+      {{ t('not_found') }}
       <template v-slot:subtitle>
         404
         <div class="h-20"></div>
@@ -36,25 +36,25 @@
 
         <ProfileQuestion class="lg:mt-7" field_name="about_question">
           <HeartIcon class="inline w-5.4 text-gray-900 dark:text-gray-200 -mt-1 mr-0.8" />
-          Über mich
+          {{ t('aboutMeTitle') }}
           <template v-slot:subtitle>
-            Über Dich, Dein Leben, und Erkenntnisse
+            {{ t('aboutMeSubtitle') }}
           </template>
         </ProfileQuestion>
 
         <ProfileQuestion field_name="festival_question">
           <RocketLaunchIcon class="inline w-5.5 text-gray-900 dark:text-gray-200 -mt-1 mr-1" />
-          Festivals
+          {{ t('festivalsTitle') }}
           <template v-slot:subtitle>
-            Auf welchen Festivals warst du? Was waren deine Eindrücke?
+            {{ t('festivalsSubtitle') }}
           </template>
         </ProfileQuestion>
 
         <ProfileQuestion field_name="future_question">
           <PhotoIcon class="inline w-5.5 text-gray-900 dark:text-gray-200 -mt-1 mr-1" />
-          Vision of the Future
+          {{ t('futureVisionTitle') }}
           <template v-slot:subtitle>
-            Wie siehst du die Zukunft? Was sind deine größten Visionen?
+            {{ t('futureVisionSubtitle') }}
           </template>
         </ProfileQuestion>
 
@@ -83,6 +83,7 @@ import { HeartIcon } from '@heroicons/vue/24/outline';
 import { PhotoIcon } from '@heroicons/vue/24/outline';
 import { RocketLaunchIcon } from '@heroicons/vue/24/outline';
 
+const { t } = useI18n()
 const route = useRoute()
 
 const { profile, loadProfile } = useProfile()
@@ -96,3 +97,24 @@ if (username) {
 
 
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "not_found": "User nicht gefunden.",
+    "aboutMeTitle": "Über mich",
+    "aboutMeSubtitle": "Über Dich, Dein Leben, und Erkenntnisse",
+    "festivalsTitle": "Festivals",
+    "festivalsSubtitle": "Auf welchen Festivals warst du? Was waren deine Eindrücke?",
+    "futureVisionTitle": "Vision der Zukunft",
+    "futureVisionSubtitle": "Wie siehst du die Zukunft? Was sind deine größten Visionen?"
+  },
+  "en": {
+    "not_found": "User not found.",
+    "aboutMeTitle": "About me",
+    "aboutMeSubtitle": "About you, your life, and insights",
+    "festivalsTitle": "Festivals",
+    "festivalsSubtitle": "Which festivals have you been to? What were your impressions?",
+    "futureVisionTitle": "Vision of the Future",
+    "futureVisionSubtitle": "How do you see the future? What are your biggest visions?"
+  }
+}</i18n>

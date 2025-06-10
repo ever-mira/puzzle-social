@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-7 mb-2 text-gray-800 dark:text-gray-200">Umkreissuche:</div>
+    <div class="mt-7 mb-2 text-gray-800 dark:text-gray-200">{{ t('radiusSearchLabel') }}</div>
     <AutocompleteLocation v-model="selectedLocation" />
 
     <ListGrid v-if="users">
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import AutocompleteLocation from '~/components/location/AutocompleteLocation.vue'
 
+const { t } = useI18n()
 const { users, loadUsers, updateUserList, selectedLocation } = useUsers()
 if (!selectedLocation.value) {
   await loadUsers()
@@ -40,3 +41,12 @@ watch(selectedLocation, async (newLocation) => {
   }
 })
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "radiusSearchLabel": "Umkreissuche:"
+  },
+  "en": {
+    "radiusSearchLabel": "Radius Search:"
+  }
+}</i18n>

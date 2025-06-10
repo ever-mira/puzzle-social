@@ -30,8 +30,9 @@ import Modal from './components/app/Modal.vue'
 import ImageModal from './components/app/ImageModal.vue'
 import FloatingOrbs from './components/app/FloatingOrbs.vue'
 
+const { t } = useI18n()
 useHead({
-  title: 'Puzzle Social',
+  title: t('siteTitle'),
 })
 
 const router = useRouter()
@@ -59,3 +60,12 @@ router.afterEach((to, from, next) => {
   opacity: 0;
 }
 </style>
+
+<i18n lang="json">{
+  "de": {
+    "siteTitle": "Puzzle Social"
+  },
+  "en": {
+    "siteTitle": "Puzzle Social"
+  }
+}</i18n>

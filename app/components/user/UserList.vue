@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-gray-500 dark:text-gray-300 text-xl">
-      <PuzzlePieceIcon class="inline w-5 mr-3 -mt-1.3" />Mitglieder
+      <PuzzlePieceIcon class="inline w-5 mr-3 -mt-1.3" />{{ t('membersTitle') }}
     </h1>
     <div class="flex flex-wrap -ml-3 mt-7 gap-x-.5 lg:gap-x-0 gap-y-3 xl:max-w-90% 2xl:max-w-80%" v-if="users">
       <div v-for="user in users" :key="user.user_id" class="ml-3">
@@ -19,6 +19,16 @@
 
 <script setup lang="ts">
 import { PuzzlePieceIcon } from '@heroicons/vue/24/outline'
+const { t } = useI18n()
 const { users, loadUsers } = useUsers()
 await loadUsers(30)
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "membersTitle": "Mitglieder"
+  },
+  "en": {
+    "membersTitle": "Members"
+  }
+}</i18n>
