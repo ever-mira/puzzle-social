@@ -13,7 +13,7 @@
             @{{ profile.username }}
           </div>
           <div class="text-gray-400 dark:text-gray-600 text-sm">
-            eingeloggt.
+            {{ t('loggedInStatus') }}
           </div>
         </div>
       </div>
@@ -23,6 +23,16 @@
 
 
 <script setup lang="ts">
+const { t } = useI18n()
 const { profile } = useUser()
 const { hideSidebar } = useApp()
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "loggedInStatus": "eingeloggt."
+  },
+  "en": {
+    "loggedInStatus": "logged in."
+  }
+}</i18n>

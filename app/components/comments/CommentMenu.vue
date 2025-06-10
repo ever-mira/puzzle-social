@@ -42,7 +42,7 @@ const deleteClick = () => {
   emit('deleteClicked')
 }
 const reportClick = () => {
-  showModal('Diese Funktion kommt bald')
+  showModal(t('comingSoon'))
 }
 
 const { t } = useI18n()
@@ -51,11 +51,13 @@ const { t } = useI18n()
 <i18n lang="json">{
   "de": {
     "delete": "löschen",
-    "report": "melden"
+    "report": "melden",
+    "comingSoon": "Diese Funktion kommt bald"
   },
   "en": {
     "delete": "delete",
-    "report": "report"
+    "report": "report",
+    "comingSoon": "This feature is coming soon"
   }
 }</i18n>
 

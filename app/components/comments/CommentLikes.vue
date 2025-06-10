@@ -8,8 +8,8 @@
     @mouseenter="showList" @mouseleave="hideList" @click="showList">
     <div>
       {{ likedByListCount }}
-      <span class="text-gray-500" v-if="likedByListCount === 1">like</span>
-      <span class="text-gray-500" v-else>likes</span>
+      <span class="text-gray-500" v-if="likedByListCount === 1">{{ t('likeSingular') }}</span>
+      <span class="text-gray-500" v-else>{{ t('likePlural') }}</span>
     </div>
     <div class="absolute" @mouseenter="showList" @mouseleave="hideList" v-if="showLikesList">
       <div class="mt-1.3 flex flex-col bg-gray-50 bg-opacity-95 shadow-md rounded-lg py-1.7 px-3 min-w-37 gap-y.4">
@@ -25,6 +25,7 @@
 import { HeartIcon } from "@heroicons/vue/24/outline"
 import { HeartIcon as HeartIconSolid } from "@heroicons/vue/24/solid"
 
+const { t } = useI18n()
 const props = defineProps<{ comment: any, category: 'reports' | 'hints' }>()
 
 const user = useSupabaseUser()
@@ -55,11 +56,11 @@ liked.value = likedByList.value.some((item: any) => {
 
 const toggleLike = async () => {
   if (!user.value) {
-    showModal("Du musst eingeloggt sein, um liken zu können.")
+    showModal(t('mustBeLoggedInToLike'))
     return
   }
   if (!navigator.onLine) {
-    showModal("Kein Internet.")
+    showModal(t('noInternet'))
     return
   }
   liked.value = !liked.value
@@ -99,3 +100,18 @@ const removeSelfFromList = async () => {
 </script>
 
 <style scoped></style>
+
+<i18n lang="json">{
+  "de": {
+    "likeSingular": "Gefällt mir",
+    "likePlural": "Gefällt mir Angaben",
+    "mustBeLoggedInToLike": "Du musst eingeloggt sein, um liken zu können.",
+    "noInternet": "Kein Internet."
+  },
+  "en": {
+    "likeSingular": "like",
+    "likePlural": "likes",
+    "mustBeLoggedInToLike": "You must be logged in to like.",
+    "noInternet": "No internet."
+  }
+}</i18n>
