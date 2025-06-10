@@ -1,14 +1,14 @@
 <template>
   <div class="border-l border-gray-3 pl-3">
     <div class="text-xl">
-      <SparklesIcon class="inline w-5.5 text-gray-900 dark:text-gray-200 -mt-1 mr-2" />Action
+      <SparklesIcon class="inline w-5.5 text-gray-900 dark:text-gray-200 -mt-1 mr-2" />{{ t('activityTitle') }}
     </div>
 
     <div class="lg:text-lg" v-if="profile">
       <div class="mt-6 lg:mt-7" v-if="profile.created_at">
         <div class="grow font-medium">{{ formatDate(profile.created_at) }}</div>
         <div class="grow mt-2">
-          <CakeIcon class="inline w-5 -mt-1 mr-2" />Bei Puzzle angemeldet
+          <CakeIcon class="inline w-5 -mt-1 mr-2" />{{ t('registeredAtPuzzle') }}
         </div>
       </div>
 
@@ -16,7 +16,7 @@
         <div class="grow font-medium">{{ item.formattedDate }}</div>
         <div class="grow mt-2">
           <NuxtLink :to="`/exchange/items/${item.id}`">
-            <PencilIcon class="inline w-5 -mt-1 mr-2" /><span class="underline">Angebot</span> in <span
+            <PencilIcon class="inline w-5 -mt-1 mr-2" /><span v-html="t('offerIn')"></span> <span
               class="font-medium">{{ item.exchange_categories.name
               }}</span>: "<span class="font-italic">{{ item.title }}</span>"
           </NuxtLink>
@@ -35,6 +35,7 @@ import { PencilIcon } from '@heroicons/vue/24/outline'
 import type { Tables } from "~~/types/database.types"
 type ExchangeItem = Tables<"exchange_items">
 
+const { t } = useI18n()
 const { profile } = useProfile()
 
 const { data: exchange_items } = await useFetch<ExchangeItem[]>("/api/exchange/items/" + `?user_id=${profile.value?.user_id}`, {
@@ -60,3 +61,16 @@ function formatDate(dateString: string) {
 }
 
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "activityTitle": "Aktivität",
+    "registeredAtPuzzle": "Bei Puzzle angemeldet",
+    "offerIn": "<span class=\"underline\">Angebot</span> in"
+  },
+  "en": {
+    "activityTitle": "Activity",
+    "registeredAtPuzzle": "Registered at Puzzle",
+    "offerIn": "<span class=\"underline\">Offer</span> in"
+  }
+}</i18n>

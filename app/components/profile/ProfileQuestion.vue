@@ -8,12 +8,12 @@
         <Button color="gray" size="small" @click="editMode = true" v-if="!editMode && isOwnProfile"
           class="!py-1.4 !px-4">
           <span>
-            bearbeiten
+            {{ t('editButton') }}
           </span>
         </Button>
 
         <Button color="white" size="small" @click="cancel" v-if="editMode" class="!py-1.5 !px-4">
-          abbrechen
+          {{ t('cancelButton') }}
         </Button>
       </div>
     </div>
@@ -31,7 +31,7 @@
 
     <div class="mt-5" v-if="editMode">
       <Button color="indigo" size="small" @click="save" v-if="editMode" class="!py-2 !px-4">
-        speichern
+        {{ t('saveButton') }}
       </Button>
     </div>
 
@@ -39,6 +39,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 import type { Tables } from "~~/types/database.types"
 type Profile = Tables<"profiles">
 
@@ -75,3 +76,16 @@ const cancel = () => {
   editMode.value = false
 }
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "editButton": "bearbeiten",
+    "cancelButton": "abbrechen",
+    "saveButton": "speichern"
+  },
+  "en": {
+    "editButton": "edit",
+    "cancelButton": "cancel",
+    "saveButton": "save"
+  }
+}</i18n>

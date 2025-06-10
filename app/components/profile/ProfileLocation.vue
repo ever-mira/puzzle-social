@@ -1,21 +1,21 @@
 <template>
   <div>
     <div class="text-lg">
-      <MapPinIcon class="inline w-5 -mt-1" /> Wohnort
+      <MapPinIcon class="inline w-5 -mt-1" /> {{ t('locationTitle') }}
       <div class="inline mt-2 ml-5" v-if="isOwnProfile">
 
         <Button color="gray" size="small" @click="editMode = true" v-if="!editMode && isOwnProfile"
           class="!py-1.5 !px-4">
           <span v-if="!profile?.location_label">
-            setzen
+            {{ t('setButton') }}
           </span>
           <span v-else>
-            ändern
+            {{ t('changeButton') }}
           </span>
         </Button>
 
         <Button color="white" size="small" @click="editMode = false" v-if="editMode" class="!py-1.7 !px-4">
-          abbrechen
+          {{ t('cancelButton') }}
         </Button>
       </div>
     </div>
@@ -24,7 +24,7 @@
         {{ profile.location_label }}
       </span>
       <span v-if="!profile?.location_label">
-        nicht angegeben
+        {{ t('notSet') }}
       </span>
     </div>
     <div class="gap-x-2 mt-5" v-if="editMode">
@@ -32,13 +32,14 @@
       <!-- <CitySearch v-model="selectedLocation" :country="selectedCountry" v-if="selectedCountry" /> -->
       <AutocompleteLocation v-model="selectedLocation" />
       <Button color="indigo" size="small" @click="save" v-if="editMode && selectedLocation" class="mt-5 !py-2 !px-4">
-        speichern
+        {{ t('saveButton') }}
       </Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
 import AutocompleteLocation from '~/components/location/AutocompleteLocation.vue'
 import { MapPinIcon } from '@heroicons/vue/24/outline'
 
@@ -62,3 +63,22 @@ const save = async () => {
 }
 
 </script>
+
+<i18n lang="json">{
+  "de": {
+    "locationTitle": "Wohnort",
+    "setButton": "setzen",
+    "changeButton": "ändern",
+    "cancelButton": "abbrechen",
+    "notSet": "nicht angegeben",
+    "saveButton": "speichern"
+  },
+  "en": {
+    "locationTitle": "Location",
+    "setButton": "set",
+    "changeButton": "change",
+    "cancelButton": "cancel",
+    "notSet": "not set",
+    "saveButton": "save"
+  }
+}</i18n>
