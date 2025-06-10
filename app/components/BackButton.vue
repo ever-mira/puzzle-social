@@ -1,6 +1,6 @@
 <template>
   <Button @click="goBack" class="!px-7 mt-10 lg:mt-27" color="indigo">
-    <ArrowLeftIcon class="inline w-5 mr-1.5 -ml-2.2" />{{ t('profile.back') }}
+    <ArrowLeftIcon class="inline w-5 mr-1.5 -ml-2.2" />{{ t('back') }}
   </Button>
 </template>
 
@@ -21,9 +21,9 @@ const goBack = () => {
 
 <i18n lang="json">{
   "de": {
-    "profile.back": "Zurück"
+    "back": "Zurück"
   },
   "en": {
-    "profile.back": "Back"
+    "back": "Back"
   }
 }</i18n>

@@ -9,26 +9,26 @@
         </div>
         <div
           class="text-[2rem] lg:text-[2.5rem] font-bold font-figtree text-gray-800 dark:text-gray-100 mt-4 whitespace-nowrap">
-          Community Network.
+          {{ t('communityNetwork') }}
         </div>
 
         <p class="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Das Soziale Netzwerk für eine neue Realität.
+          {{ t('subtitle') }}
         </p>
 
         <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 xl:w-130 2xl:w-160">
           <div v-if="!user">
             <Button color="indigo" @click="startClick" class="!px-9 !py-1.8 text-lg">
-              {{ $t('app.start') }}
+              {{ t('start') }}
             </Button>
 
             <Button color="transparent" @click="loginClick" class="!px-7 !py-1.8 text-lg ml-4">
-              {{ $t('app.login') }}
+              {{ t('login') }}
             </Button>
           </div>
           <div v-if="user">
             <Button color="indigo" :to="`/@${profile?.username}`" class="!px-8 !py-1.8 text-lg">
-              {{ $t('app.your_profile') }}
+              {{ t('your_profile') }}
             </Button>
           </div>
         </div>
@@ -42,6 +42,7 @@
 import Login from '../steps/Login.vue'
 import SignupStepUsername from '../steps/SignupStepUsername.vue'
 
+const { t } = useI18n()
 const user: Ref = useSupabaseUser()
 const { profile } = useUser()
 const { setStepComponent } = useSteps()
@@ -81,3 +82,20 @@ const loginClick = () => {
   -webkit-text-fill-color: transparent;
 }
 </style>
+
+<i18n lang="json">{
+  "de": {
+    "start": "Start",
+    "login": "Login",
+    "your_profile": "Dein Profil",
+    "subtitle": "Das Soziale Netzwerk für eine neue Realität.",
+    "communityNetwork": "Community Netzwerk."
+  },
+  "en": {
+    "start": "Start",
+    "login": "Login",
+    "your_profile": "Your Profile",
+    "subtitle": "Find new friends and explore the universe.",
+    "communityNetwork": "Community Network."
+  }
+}</i18n>
